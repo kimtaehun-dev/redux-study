@@ -5,7 +5,12 @@
 ### 목적
 
 - Redux / Redux-Tool-kits 기본기 복습
+- Redux DevTools 사용해보기
 - Redux-saga 개념 스터디
+- Redux-thunk 개념 스터디
+- Redux-Logger 개념 스터디
+- RTK Query 개념 스터디
+- redux-persist 개념 스터디
 - Redux 개발 패턴 스터디
 
 ### 예제

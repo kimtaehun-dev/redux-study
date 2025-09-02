@@ -1,12 +1,30 @@
 "use client";
 
+import { AppDispatch, RootState } from "@/store/store";
 import { FormEvent, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { StackType } from "./stack";
+import { clear, push } from "@/store/stackSlice";
 
 export function StackInput() {
   const [inputValue, setInputValue] = useState<string>("");
+  const stackItems: StackType[] = useSelector(
+    (state: RootState) => state.stack.items
+  );
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleStackPush = (e: FormEvent) => {
     e.preventDefault();
+    if (!inputValue) return;
+    const nextIndex = stackItems.length
+      ? stackItems[stackItems.length - 1].index + 1
+      : 0;
+    dispatch(push({ index: nextIndex, value: inputValue }));
     setInputValue("");
+  };
+
+  const handleClear = () => {
+    dispatch(clear());
   };
 
   return (
@@ -26,6 +44,13 @@ export function StackInput() {
             type="submit"
           >
             Push
+          </button>
+          <button
+            className="border-black border-1 p-2 rounded-md hover:cursor-pointer"
+            type="button"
+            onClick={handleClear}
+          >
+            clear
           </button>
         </div>
       </form>
