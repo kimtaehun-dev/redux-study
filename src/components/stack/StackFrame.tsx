@@ -1,3 +1,5 @@
+"use client";
+
 import { useSelector } from "react-redux";
 import { StackType } from "./stack";
 import StackBox from "./StackBox";

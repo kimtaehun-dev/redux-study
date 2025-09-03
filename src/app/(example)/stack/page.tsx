@@ -1,5 +1,3 @@
-"use client";
-
 import { StackFrame, StackInput } from "@/components/stack";
 
 export default function StackPage() {
